@@ -2,6 +2,7 @@
   "name": "covid19-statistics",
   "version": "1.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@material-ui/lab": "^4.0.0-alpha.61",

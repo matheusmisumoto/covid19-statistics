@@ -3,11 +3,11 @@ import { Typography, CardContent, Card } from '../../../components'
 
 export const LabelStyled = styled(Typography)`
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 `
 export const ValueStyled = styled(Typography)`
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 2.5rem;
 `
 export const CardStyled = styled(Card)`
     background: rgba(0,0,0,.4);

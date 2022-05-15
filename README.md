@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# COVID-19 Statistics
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project shows updated statistics about the Coronavirus pandemic around the world. It shows today's and total cases, and today's and total deaths worldwide, as well as from Brazil, China, Germany, Italy, Japan, United States and Portugal.
+
+Progressive web application developed using React, with data collected from a [public API](https://coronavirus-19-api.herokuapp.com/) using information from [Worldometer](https://www.worldometers.info/coronavirus/).
+
+See it in action: https://projects.matheusmisumoto.dev/covid19-stats
+
+## Add new countries
+Countries can be added to the list by editing the file `/src/commons/constants/countries.js`, with flags image files stored at `/assets/images` folder.
 
 ## Available Scripts
 
@@ -45,26 +52,3 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

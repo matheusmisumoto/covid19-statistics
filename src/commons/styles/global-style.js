@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     body { 
         line-height: normal;
         letter-spacing: -0.033em;
+        background-color: #00374c;
     }
     html, body {
         width: 100%;
