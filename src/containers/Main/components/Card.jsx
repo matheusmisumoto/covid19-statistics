@@ -1,19 +1,19 @@
 import React, { memo } from 'react';
-import { Card as CardUI } from '../../../components'
+import { CardContent } from '../../../components'
 import { 
+    CardStyled,
     LabelStyled,
     ValueStyled,
-    CardContentStyled
 } from './style';
 
 function Card({ value, label, color }){
     return (
-        <CardUI>
-            <CardContentStyled color={color}>
+        <CardStyled variant="outlined">
+            <CardContent>
                 <ValueStyled>{value}</ValueStyled>
                 <LabelStyled>{label}</LabelStyled>
-            </CardContentStyled>
-        </CardUI>
+            </CardContent>
+        </CardStyled>
     )
 }
 

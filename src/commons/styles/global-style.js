@@ -6,8 +6,12 @@ const GlobalStyle = createGlobalStyle`
         outline: none;
         box-sizing: border-box;
     }
+    a {
+        color: white;
+    }
     body { 
         line-height: normal;
+        letter-spacing: -0.033em;
     }
     html, body {
         width: 100%;
@@ -24,10 +28,10 @@ const GlobalStyle = createGlobalStyle`
         background-position: center center;
     }
     .mb-2 {
-        margin-bottom: 16px;
+        margin-bottom: 2rem;
     }
     .pt-2 {
-        padding-top: 16px;
+        padding-top: 2rem;
     }
     .cursor { 
         cursor: pointer;

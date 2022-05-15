@@ -1,28 +1,33 @@
 import styled from 'styled-components';
-import { Typography, CardContent } from '../../../components'
+import { Typography, CardContent, Card } from '../../../components'
 
 export const LabelStyled = styled(Typography)`
-    font-weight: 500,
+    font-weight: 700;
     font-size: 1.5rem;
 `
-
 export const ValueStyled = styled(Typography)`
-    font-weight: 400;
-    font-size: 2.5rem;
+    font-weight: 700;
+    font-size: 3rem;
 `
-
-export const CardContentStyled = styled(CardContent)`
-    border-left: 8px solid ${( { color } ) => color || '#5d78ff'}
+export const CardStyled = styled(Card)`
+    background: rgba(0,0,0,.4);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 2px solid rgba(240,240,240,.6);
+    border-radius: 1rem;
+    padding: 1rem;
 `
-
 export const CardPanelContentStyled = styled(CardContent)`
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    padding: 25px;
+    padding-top: 1rem;
+    text-align: center;
 `
-
 export const ItemStyled = styled.div`
     display: flex;
-    justify-content: space-between;
+    gap: 1rem;
     min-width: 150px;
+    align-items: center;
+    height: 1.25rem;
 `

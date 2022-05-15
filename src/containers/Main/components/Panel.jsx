@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
-import { Card, Typography, Button, Select, MenuItem } from '../../../components';
+import { Typography, Button, Select, MenuItem, Grid } from '../../../components';
 import COUNTRIES from '../../../commons/constants/countries';
-import { CardPanelContentStyled, ItemStyled } from './style';
+import { CardPanelContentStyled, CardStyled, ItemStyled } from './style';
 
 const navigatorHasShare = navigator.share;
 
@@ -10,57 +10,67 @@ function Panel({ updateAt, onChange, data, country, getCovidData }) {
     const renderCountries = (country, index) => (
         <MenuItem key={`country-${index}`} value={country.value}>
             <ItemStyled>
+                <img src={country.flag} width="32" alt={`Country: ${country.label}`} />
                 <div>{country.label}</div>
-                <img src={country.flag} alt={`Country: ${country.label}`} />
             </ItemStyled>
         </MenuItem>
     )
 
-    const textCovid19 = `Country: ${country}`;
-    
+    const filterCountry = (arr, searchKey) => {
+        return arr.filter(obj => Object.keys(obj).some(key => obj[key].includes(searchKey)));
+    }
+
+    const textCovid19 = `Check the latest COVID-19 Statistics - ${filterCountry(COUNTRIES, country)[0].label}\r\n${window.location.href}`;
+
     const copyInfo = () => {
         navigator.clipboard.writeText(textCovid19);
     }
 
     const shareInfo = () => {
         navigator.share({
-            title: `COVID-19 Statistics - ${country}`,
-            text: textCovid19,
-            url: 'https://example.com'
+            title: `COVID-19 Statistics - ${filterCountry(COUNTRIES, country)[0].label}`,
+            text: 'The latest data about the pandemic',
+            url: window.location.href
         })
     }
 
     const renderShareButton = (
         <div>
-            <Button variant="contained" color="primary" onClick={shareInfo}>
-                Share
+            <Button variant="contained" size="large" color="primary" onClick={shareInfo}>
+                Share this page
             </Button>
         </div>
     )
     
     const renderCopyButton = (
         <div>
-            <Button variant="contained" color="primary" onClick={copyInfo}>
-                Copy
+            <Button variant="contained" size="large" color="primary" onClick={copyInfo}>
+                Copy URL
             </Button>
         </div>
     )
 
     return (
-        <Card>
+        <CardStyled>
             <CardPanelContentStyled>
                 <div>
-                    <Typography variant="h5" component="span" color="primary">COVID-19 Statistics</Typography>
-                    <Typography variant="h6" component="span" color="primary">Last updated: {updateAt} </Typography>
+                    <Typography variant="h3" component="h3">COVID-19 Statistics</Typography>
+                    <Typography variant="h6" component="h6">Last updated: {updateAt} </Typography>
                 </div>
                 <div className='pt-2'>
-                    <Select onChange={onChange} value={country}>
-                        {COUNTRIES.map(renderCountries)}
-                    </Select>
+                    <Grid container spacing={4} justifyContent="center" alignItems="center">
+                        <Grid item xs={12} md={6}>
+                            <Select disableUnderline onChange={onChange} value={country}>
+                                {COUNTRIES.map(renderCountries)}
+                            </Select>
+                        </Grid>
+                        <Grid item>
+                            {navigatorHasShare ? renderShareButton : renderCopyButton }
+                        </Grid>
+                    </Grid>
                 </div>
-                {navigatorHasShare ? renderShareButton : renderCopyButton }
             </CardPanelContentStyled>
-        </Card>
+        </CardStyled>
     )
 }
 

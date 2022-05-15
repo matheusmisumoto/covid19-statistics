@@ -1,15 +1,16 @@
-import { StylesProvider } from '@material-ui/styles';
 import { CssBaseline } from '@material-ui/core';
 import GlobalStyle from './commons/styles/global-style'
 import Main from './containers/Main'
+import { ThemeProvider } from "@material-ui/core/styles";
+import theme from './theme';
 
 function App() {
   return (
-    <StylesProvider injectFirst>
+    <ThemeProvider theme={theme}>
         <CssBaseline />
         <GlobalStyle />
         <Main />
-    </StylesProvider>
+    </ThemeProvider>
   );
 }
 

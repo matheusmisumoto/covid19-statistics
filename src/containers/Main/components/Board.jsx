@@ -9,16 +9,16 @@ function Board({data}) {
 
     return (
         <Grid container spacing={4}>
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} md={6}>
                 <Card value={getValue(todayDeaths)} label="Today's deaths" color="#000" />
             </Grid>
-            <Grid item xs={12} md={3}>
-                <Card value={getValue(deaths)} label="Today's cases" />
+            <Grid item xs={12} md={6}>
+                <Card value={getValue(deaths)} label="Total deaths" />
             </Grid>
-            <Grid item xs={12} md={3}>
-                <Card value={getValue(todayCases)} label="Total deaths" color="#990000" />
+            <Grid item xs={12} md={6}>
+                <Card value={getValue(todayCases)} label="Today's cases" color="#990000" />
             </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} md={6}>
                 <Card value={getValue(cases)} label="Total cases" color="#FF3300" />
             </Grid>
         </Grid>
