@@ -28,7 +28,7 @@ function Panel({ updateAt, onChange, data, country, getCovidData }) {
 
     const shareInfo = () => {
         navigator.share({
-            title: `COVID-19 Statistics - ${filterCountry(COUNTRIES, country)[0].label}`,
+            title: 'COVID-19 Statistics',
             text: 'The latest data about the pandemic',
             url: window.location.href
         })
