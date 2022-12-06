@@ -1,4 +1,4 @@
-const path = 'https://coronavirus-19-api.herokuapp.com/countries';
+const path = 'https://disease.sh/v3/covid-19';
 
 const headers = {
     method: 'get',
@@ -7,12 +7,17 @@ const headers = {
 }
 
 function getCountry(country){
-    return fetch(`${path}/${country}`, headers)
+    return fetch(`${path}/countries/${country}`, headers)
+        .then((response) => response.json())
+}
+
+function getWorld(){
+    return fetch(`${path}/all`, headers)
         .then((response) => response.json())
 }
 
 const exportObject = {
-    getCountry
+    getCountry, getWorld
 }
 
 export default exportObject;

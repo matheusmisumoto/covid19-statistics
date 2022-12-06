@@ -12,8 +12,11 @@ function Main() {
     const updateAt = new Date().toLocaleString();
 
     const getCovidData = useCallback((country) => {
-        Api.getCountry(country)
-            .then(data => setData(data))
+        if(country === 'world') { 
+            Api.getWorld().then(data => setData(data))    
+        } else {
+            Api.getCountry(country).then(data => setData(data))
+        }
     }, [])
 
     useEffect(() => {
@@ -43,9 +46,9 @@ function Main() {
                 <div className="mb-2">
                     <CardStyled>
                         <CardPanelContentStyled>
-                            <Typography variant="body1" component="p">Source: <a href="https://coronavirus-19-api.herokuapp.com/" target="_blank" rel="noreferrer">Public API</a> with information from <a href="https://www.worldometers.info/coronavirus/" target="_blank" rel="noreferrer">Worldometer</a></Typography>
+                            <Typography variant="body1" component="p">Source: <a href="https://disease.sh/docs/" target="_blank" rel="noopener noreferrer">Public API</a> with information from <a href="https://www.worldometers.info/coronavirus/" target="_blank" rel="noopener noreferrer">Worldometer</a></Typography>
                             <Typography variant="body1" component="p">Developed by <a href="https://matheusmisumoto.dev/">Matheus Misumoto</a></Typography>
-                            <Typography variant="body2" component="p"><a href="https://github.com/matheusmisumoto/covid19-statistics" target="_blank" rel="noreferrer">Repository on Github</a></Typography>
+                            <Typography variant="body2" component="p"><a href="https://github.com/matheusmisumoto/covid19-statistics" target="_blank" rel="noopener noreferrer">Repository on Github</a></Typography>
                         </CardPanelContentStyled>
                     </CardStyled>
                 </div>

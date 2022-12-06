@@ -5,7 +5,7 @@ import Card from './Card'
 function Board({data}) {
     const { cases, todayDeaths, deaths, todayCases } = data;
 
-    const getValue = (value) => value ? new Intl.NumberFormat('en-US').format(value) : <Skeleton variant="text" width={182} />
+    const getValue = (value) => (value || value === 0) ? new Intl.NumberFormat('en-US').format(value) : <Skeleton variant="text" width={182} />
 
     return (
         <Grid container spacing={4}>
