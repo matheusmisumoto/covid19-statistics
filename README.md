@@ -2,7 +2,7 @@
 
 This project shows updated statistics about the Coronavirus pandemic around the world. It shows today's and total cases, and today's and total deaths worldwide, as well as from Brazil, China, Germany, Italy, Japan, United States and Portugal.
 
-Progressive web application developed using React, with data collected from a [public API](https://coronavirus-19-api.herokuapp.com/) using information from [Worldometer](https://www.worldometers.info/coronavirus/).
+Progressive web application developed using React, with data collected from a [public API](https://disease.sh/docs/) using information from [Worldometer](https://www.worldometers.info/coronavirus/).
 
 See it in action: https://projects.matheusmisumoto.dev/covid19-stats
 
