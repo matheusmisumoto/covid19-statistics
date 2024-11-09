@@ -1,29 +1,46 @@
-import React, { memo } from 'react';
+'use client'
+
+import React, { memo, useState, useEffect } from 'react';
 import { Typography, Button, Select, MenuItem, Grid } from '../../../components';
 import COUNTRIES from '../../../commons/constants/countries';
 import { CardPanelContentStyled, CardStyled, ItemStyled } from './style';
-
-const navigatorHasShare = navigator.share;
+import Image from 'next/image';
 
 function Panel({ updateAt, onChange, data, country, getCovidData }) {
+    const [navigatorHasShare, setNavigatorHasShare] = useState(false);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined' && navigator.share) {
+            setNavigatorHasShare(true);
+        }
+    }, []);
 
     const renderCountries = (country, index) => (
         <MenuItem key={`country-${index}`} value={country.value}>
             <ItemStyled>
-                <img src={country.flag} width="32" alt={`Country: ${country.label}`} />
+                <Image src={country.flag} width={32} alt={`Country: ${country.label}`} />
                 <div>{country.label}</div>
             </ItemStyled>
         </MenuItem>
     )
 
     const filterCountry = (arr, searchKey) => {
-        return arr.filter(obj => Object.keys(obj).some(key => obj[key].includes(searchKey)));
+        return arr.filter(obj => 
+            Object.keys(obj).some(key => 
+                typeof obj[key] === 'string' && obj[key].includes(searchKey)
+            )
+        );
     }
 
-    const textCovid19 = `Check the latest COVID-19 Statistics - ${filterCountry(COUNTRIES, country)[0].label}\r\n${window.location.href}`;
+    const filteredCountry = filterCountry(COUNTRIES, country);
+    const textCovid19 = filteredCountry.length > 0 
+    ? `Check the latest COVID-19 Statistics - ${filteredCountry[0].label}\r\n${typeof window !== 'undefined' ? window.location.href : ''}`
+    : 'Check the latest COVID-19 Statistics';
 
     const copyInfo = () => {
-        navigator.clipboard.writeText(textCovid19);
+        if (typeof window !== 'undefined' && navigator.clipboard) {
+            navigator.clipboard.writeText(textCovid19);
+        }
     }
 
     const shareInfo = () => {
@@ -59,12 +76,12 @@ function Panel({ updateAt, onChange, data, country, getCovidData }) {
                 </div>
                 <div className='pt-2'>
                     <Grid container spacing={4} justifyContent="center" alignItems="center">
-                        <Grid item xs={12} md={6}>
-                            <Select disableUnderline onChange={onChange} value={country}>
+                        <Grid size={{ xs: 12, md: 6 }}>
+                            <Select onChange={onChange} value={country}>
                                 {COUNTRIES.map(renderCountries)}
                             </Select>
                         </Grid>
-                        <Grid item>
+                        <Grid>
                             {navigatorHasShare ? renderShareButton : renderCopyButton }
                         </Grid>
                     </Grid>

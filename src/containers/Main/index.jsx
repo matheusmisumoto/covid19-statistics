@@ -1,3 +1,5 @@
+'use client'
+
 import React, { memo, useState, useEffect, useCallback } from 'react';
 import Api from '../../api';
 import { ContainerStyled } from './style';

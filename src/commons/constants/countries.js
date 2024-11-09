@@ -1,11 +1,11 @@
-import BrazilFlag from '../../assets/images/brazil.svg'
-import ChinaFlag from '../../assets/images/china.svg'
-import GermanyFlag from '../../assets/images/germany.svg'
-import ItalyFlag from '../../assets/images/italy.svg'
-import JapanFlag from '../../assets/images/japan.svg'
-import UsaFlag from '../../assets/images/usa.svg'
-import UNFlag from '../../assets/images/un.svg'
-import PortugalFlag from '../../assets/images/portugal.svg'
+import BrazilFlag from '../../../public/images/brazil.svg'
+import ChinaFlag from '../../../public/images/china.svg'
+import GermanyFlag from '../../../public/images/germany.svg'
+import ItalyFlag from '../../../public/images/italy.svg'
+import JapanFlag from '../../../public/images/japan.svg'
+import UsaFlag from '../../../public/images/usa.svg'
+import UNFlag from '../../../public/images/un.svg'
+import PortugalFlag from '../../../public/images/portugal.svg'
 
 const COUNTRIES = [
   {

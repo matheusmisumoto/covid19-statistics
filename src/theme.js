@@ -1,4 +1,4 @@
-import { createTheme } from "@material-ui/core/styles";
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   typography: {
@@ -18,34 +18,37 @@ const theme = createTheme({
       fontWeight: 800
     }
   },
-  overrides: {
+  components: {
     MuiInputBase: {
-      root: {
-        color: '#FFF',
-        backgroundColor: 'rgba(0,0,0,.4)',
-        width: '100%',
-        borderRadius: '.5rem',
-      },
-    },
-    MuiSvgIcon: {
-      root: {
-        fill: '#FFF',
+      styleOverrides: {
+        root: {
+          color: '#FFF',
+          backgroundColor: 'rgba(0,0,0,.4)',
+          width: '100%',
+          borderRadius: '.5rem',
+        }
       }
     },
-    MuiSelect: {
-      root: {
-        padding: '1rem 1rem',
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          fill: '#FFF',
+        }
       }
     },
     MuiSkeleton: {
-      root: {
-        backgroundColor: 'rgba(255, 255, 255, 0.11)',
+      styleOverrides: {
+        root: {
+          backgroundColor: 'rgba(255, 255, 255, 0.11)',
+        }
       }
     },
     MuiPaper: {
-      root: {
-        backgroundColor: '#000011',
-      },
+      styleOverrides: {
+        root: {
+          backgroundColor: '#000011',
+        }
+      }
     }
   },
 });

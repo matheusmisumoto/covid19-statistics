@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import CovidImg from '../../assets/images/covid.webp';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -22,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
     }
     #root {
-        background: url(${CovidImg});
+        background: url('/images/covid.webp');
         height: 100%;
         width: 100%;
         background-size: cover;
@@ -38,5 +37,4 @@ const GlobalStyle = createGlobalStyle`
         cursor: pointer;
     }
 `
-
 export default GlobalStyle
