@@ -49,3 +49,6 @@ It uses the root path of the domain as default, but you can set a path prefix fo
 
 The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
+
+---
+Developed with ☕ by [Matheus Misumoto](https://matheusmisumoto.dev) in Santos, Brazil
